@@ -34,6 +34,7 @@ btnFilter.forEach((btn) => {
                 sections.style.display ="none"
             } else if(filterData >= 1 ){
                 sections.style.display ="block"
+                sections.style.transition ="ease-in .5s"
             }
         })
     })

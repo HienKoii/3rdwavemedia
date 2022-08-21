@@ -82,7 +82,7 @@ html {
     top: 100px;
     right: 0;
     transform: translateX(100%);
-    transition: ease-in .5s;
+    transition: ease-in .42s;
 }
 .controls__color.open {
     transform: translateX(0);
@@ -164,7 +164,6 @@ html {
     color: #fff;
     background-color: #41A4F5;
 }
-
 .btn:hover {
     background-color: #e6e9ed;
 }
@@ -183,8 +182,13 @@ html {
     position: relative;
     overflow: hidden;
 }
-.section__item--img:hover .section__item--sub {
-    display: block;
+.section__item--img:hover 
+.section__item--sub {
+    transform: translateY(0);
+}
+.section__item--img:hover 
+.section__item--mask  {
+    opacity: 0;
 }
 .section__item--img img {
     max-width: 100%;
@@ -211,7 +215,8 @@ html {
     right: 0;
     padding: 24px 16px;
     background-color: rgba(12, 127, 222, .95);
-    display: none;
+    transform: translateY(110%);
+    transition: ease-in .3s;
 }
 .section__item--sub span {
     font-size: 1.8rem;
