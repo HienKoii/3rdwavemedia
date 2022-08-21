@@ -18,26 +18,23 @@ const attTheme = item.getAttribute('theme')
     })
 })
 
-const listBtn = document.querySelectorAll('.btn')
-const btnActives = document.querySelector('.btn.active')
-const clientItems = document.querySelectorAll('.section__item')
-clientItems.forEach((clientItem, index) => {
-    const AttClientItem = clientItem.getAttribute('client')
-    listBtn.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            const btnActives = document.querySelector('.btn.active')
-            btnActives.classList.remove('active')
-            item.classList.add('active')
-            if(index === 0) {
-                clientItem.style.display = 'block'
-            } else if (index === 1 && AttClientItem !=  'angular') {
-                clientItem.style.display = 'none'
-            } else if (index === 2 && AttClientItem != 'react') {
-                clientItem.style.display = 'none'
-            } else if (index === 3 && AttClientItem != 'django-python') {
-                clientItem.style.display = 'none'
+const btnFilter = document.querySelectorAll('.btn')
+const sectionItem = document.querySelectorAll('.section__item')
+
+btnFilter.forEach((btn) => {
+    const nameFilter = btn.getAttribute('data-filter')
+    console.log(nameFilter);
+    btn.addEventListener('click', ()=> {
+        document.querySelector('.btn.active').classList.remove('active')
+        btn.classList.add('active')
+        sectionItem.forEach((sections) => {
+            const getfilterData = sections.getAttribute('class')
+            const filterData = getfilterData.indexOf(nameFilter)
+            if(filterData <= 1) {
+                sections.style.display ="none"
+            } else if(filterData >= 1 ){
+                sections.style.display ="block"
             }
         })
     })
-  
 })
